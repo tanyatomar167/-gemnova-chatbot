@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Sidebar from "./sidebar";
 import ChatWindow from "./chatwindow";
-import Login from "./Login";
+import Login from "./login";
 
 function App() {
   const [user, setUser] = useState(null);
