@@ -26,7 +26,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://gemnova-frontend.onrender.com"
+  ]
+}));
 
 app.use("/api", chatRoutes);
 app.use("/api/auth", authRoutes);  // ← add this
