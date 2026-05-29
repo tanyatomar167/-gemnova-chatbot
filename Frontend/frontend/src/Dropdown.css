@@ -1,0 +1,30 @@
+.dropdown {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 280px;
+  background-color: #2a2a2a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 10px;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.dropdown-item {
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #ececec;
+  margin-bottom: 6px;
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255,255,255,0.06);
+}
+
+.dropdown-item.active {
+  background-color: rgba(25,195,125,0.18);
+  border: 1px solid rgba(25,195,125,0.4);
+}
