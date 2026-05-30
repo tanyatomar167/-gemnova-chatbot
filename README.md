@@ -259,18 +259,6 @@ http://localhost:5173
 
 ---
 
-## 🗺️ Future Scope
-
-- [ ] Light/Dark theme toggle
-- [ ] Voice input feature
-- [ ] Mobile responsive design
-- [ ] User profile page
-- [ ] Share conversations
-- [ ] Export chat as PDF
-- [ ] Image analysis mode
-
----
-
 ## 👩‍💻 Author
 
 **Tanya Tomar**
