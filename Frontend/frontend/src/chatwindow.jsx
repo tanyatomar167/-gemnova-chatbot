@@ -26,9 +26,9 @@ function ChatWindow({ theme, toggleTheme }) {
 
   return (
     <div className="chatwindow">
-      <div className="navbar">
 
-        {/* LEFT — just "Chatbot" + arrow, no mode name */}
+      {/* ✅ NAVBAR GOES HERE */}
+      <div className="navbar">
         <div
           className="navbar-left"
           onClick={() => setShowDropdown((v) => !v)}
@@ -42,8 +42,6 @@ function ChatWindow({ theme, toggleTheme }) {
               transform: showDropdown ? "rotate(180deg)" : "rotate(0deg)"
             }}
           ></i>
-
-          {/* dropdown renders here — inside navbar-left for positioning */}
           {showDropdown && (
             <Dropdown
               onClose={() => setShowDropdown(false)}
@@ -53,19 +51,22 @@ function ChatWindow({ theme, toggleTheme }) {
           )}
         </div>
 
-        {/* RIGHT — theme toggle + user icon */}
         <div className="navbar-right">
-          <button className="theme-btn" onClick={toggleTheme}>
+          {/* theme toggle button */}
+          <button
+            className="theme-btn"
+            onClick={toggleTheme}
+            title="Toggle theme"
+          >
             <i className={`fa-solid ${theme === "dark" ? "fa-sun" : "fa-moon"}`}></i>
           </button>
           <div className="usericondiv">
             <i className="fa-solid fa-user"></i>
           </div>
         </div>
-
       </div>
 
-      {/* show current mode as small badge below navbar */}
+      {/* mode badge below navbar */}
       <div className="mode-badge">
         <i className="fa-solid fa-bolt"></i> {mode} mode
       </div>
@@ -98,6 +99,7 @@ function ChatWindow({ theme, toggleTheme }) {
           Chatbot can make mistakes. Check important info. See cookie preferences.
         </p>
       </div>
+
     </div>
   );
 }

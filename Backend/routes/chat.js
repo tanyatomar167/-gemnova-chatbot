@@ -100,4 +100,31 @@ router.post("/chat", verifyToken, async (req, res) => {
   }
 });
 
+
+// add this route
+router.patch("/thread/:threadId/rename", verifyToken, async (req, res) => {
+  const { threadId } = req.params;
+  const { title } = req.body;
+
+  if (!title || title.trim().length === 0) {
+    return res.status(400).json({ error: "Title cannot be empty" });
+  }
+
+  try {
+    const thread = await Thread.findOneAndUpdate(
+      { threadId, userId: req.userId },
+      { title: title.trim() },
+      { new: true }
+    );
+
+    if (!thread) {
+      return res.status(404).json({ error: "Thread not found" });
+    }
+
+    res.json({ success: true, title: thread.title });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Failed to rename thread" });
+  }
+});
 export default router;

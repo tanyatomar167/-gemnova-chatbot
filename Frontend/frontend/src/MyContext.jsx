@@ -178,6 +178,27 @@ export function AppProvider({ children }) {
     [activeThreadId]
   );
 
+  const renameThread = useCallback(async (threadId, newTitle) => {
+  try {
+    const res = await fetch(`${BASE}/api/thread/${threadId}/rename`, {
+      method: "PATCH",
+      headers: getHeaders(),
+      body: JSON.stringify({ title: newTitle }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      setThreads((prev) =>
+        prev.map((t) =>
+          t.threadId === threadId ? { ...t, title: newTitle } : t
+        )
+      );
+    }
+  } catch (err) {
+    console.error("Failed to rename thread", err);
+  }
+}, []);
   return (
     <MyContext.Provider
       value={{
@@ -188,6 +209,7 @@ export function AppProvider({ children }) {
         setActiveThreadId: loadThread,
         createNewThread,
         deleteThread,
+        renameThread,  
         sendMessage,
       }}
     >
