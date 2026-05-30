@@ -1,5 +1,13 @@
-node_modules
-.env
+# Backend
 Backend/.env
+Backend/node_modules/
+
+# Frontend
 Frontend/frontend/.env
-dist
+Frontend/frontend/node_modules/
+Frontend/frontend/dist/
+
+# Root
+node_modules/
+.env
+dist/
