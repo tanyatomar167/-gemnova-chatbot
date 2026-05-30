@@ -9,7 +9,6 @@ export function AppProvider({ children }) {
 
   const BASE = import.meta.env.VITE_API_URL || "";
 
-  // ✅ helper — always gets latest token from localStorage
   const getHeaders = () => ({
     "Content-Type": "application/json",
     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -24,20 +23,31 @@ export function AppProvider({ children }) {
 
   const fetchAllThreads = async () => {
     try {
+      // ✅ stop if no token
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
       const res = await fetch(`${BASE}/api/thread`, {
-        headers: getHeaders()   // ✅ send token
+        headers: getHeaders()
       });
 
-      // if token invalid → clear localStorage → reload
+      // ✅ token expired → clear state only, NO reload
       if (res.status === 401) {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        window.location.reload();
+        setThreads([]);
+        return;
+      }
+
+      if (!res.ok) {
+        console.error("Server error:", res.status);
         return;
       }
 
       const data = await res.json();
-      setThreads(data);
+      if (Array.isArray(data)) {
+        setThreads(data);
+      }
     } catch (err) {
       console.error("Failed to fetch threads", err);
     }
@@ -51,7 +61,7 @@ export function AppProvider({ children }) {
 
       try {
         const res = await fetch(`${BASE}/api/thread/${threadId}`, {
-          headers: getHeaders()   // ✅ send token
+          headers: getHeaders()
         });
         const messages = await res.json();
         setThreads((prev) =>
@@ -77,7 +87,7 @@ export function AppProvider({ children }) {
     try {
       await fetch(`${BASE}/api/thread/${threadId}`, {
         method: "DELETE",
-        headers: getHeaders()   // ✅ send token
+        headers: getHeaders()
       });
       setThreads((prev) => prev.filter((t) => t.threadId !== threadId));
       setActiveThreadId((prev) => (prev === threadId ? null : prev));
@@ -124,7 +134,7 @@ export function AppProvider({ children }) {
       try {
         const res = await fetch(`${BASE}/api/chat`, {
           method: "POST",
-          headers: getHeaders(),   // ✅ send token
+          headers: getHeaders(),
           body: JSON.stringify({
             threadId,
             message: userText,
@@ -132,11 +142,12 @@ export function AppProvider({ children }) {
           }),
         });
 
-        // token expired → force logout
+        // ✅ token expired → clear state only, NO reload
         if (res.status === 401) {
           localStorage.removeItem("token");
           localStorage.removeItem("user");
-          window.location.reload();
+          setThreads([]);
+          setIsLoading(false);
           return;
         }
 
@@ -179,26 +190,27 @@ export function AppProvider({ children }) {
   );
 
   const renameThread = useCallback(async (threadId, newTitle) => {
-  try {
-    const res = await fetch(`${BASE}/api/thread/${threadId}/rename`, {
-      method: "PATCH",
-      headers: getHeaders(),
-      body: JSON.stringify({ title: newTitle }),
-    });
+    try {
+      const res = await fetch(`${BASE}/api/thread/${threadId}/rename`, {
+        method: "PATCH",
+        headers: getHeaders(),
+        body: JSON.stringify({ title: newTitle }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.success) {
-      setThreads((prev) =>
-        prev.map((t) =>
-          t.threadId === threadId ? { ...t, title: newTitle } : t
-        )
-      );
+      if (data.success) {
+        setThreads((prev) =>
+          prev.map((t) =>
+            t.threadId === threadId ? { ...t, title: newTitle } : t
+          )
+        );
+      }
+    } catch (err) {
+      console.error("Failed to rename thread", err);
     }
-  } catch (err) {
-    console.error("Failed to rename thread", err);
-  }
-}, []);
+  }, []);
+
   return (
     <MyContext.Provider
       value={{
@@ -209,7 +221,7 @@ export function AppProvider({ children }) {
         setActiveThreadId: loadThread,
         createNewThread,
         deleteThread,
-        renameThread,  
+        renameThread,
         sendMessage,
       }}
     >
