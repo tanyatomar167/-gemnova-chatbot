@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gemnova-backend
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: gemnova-backend
+  template:
+    metadata:
+      labels:
+        app: gemnova-backend
+    spec:
+      containers:
+        - name: backend
+          image: aichatapplication-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: gemnova-secrets
+                  key: MONGODB_URI
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gemnova-secrets
+                  key: GEMINI_API_KEY
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: gemnova-secrets
+                  key: JWT_SECRET
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gemnova-backend-service
+spec:
+  selector:
+    app: gemnova-backend
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
