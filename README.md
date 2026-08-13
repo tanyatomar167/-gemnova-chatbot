@@ -4,8 +4,9 @@
 
 ### AI-Powered Chatbot Application
 
-*A full-stack ChatGPT-inspired chatbot built with React, Node.js, MongoDB, and Google Gemini AI.*
-*Containerized with Docker · Orchestrated with Kubernetes · Automated with GitHub Actions CI/CD*
+GemNova is a **full-stack AI chatbot application** inspired by ChatGPT. It uses **Google Gemini 2.5 Flash** to generate intelligent responses and **MongoDB Atlas** to persist conversations. The application includes user authentication with JWT, multiple AI chat modes, conversation history, and a containerized deployment setup.
+
+This project demonstrates end-to-end software development skills — from building a React-based user interface and REST APIs with Node.js and Express to containerizing the application with Docker, deploying services with Kubernetes, and configuring a GitHub Actions CI/CD workflow.
 
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-gemnova--frontend.onrender.com-19c37d?style=for-the-badge)](https://gemnova-frontend.onrender.com)
 [![GitHub](https://img.shields.io/badge/GitHub-tanyatomar167-black?style=for-the-badge&logo=github)](https://github.com/tanyatomar167/-gemnova-chatbot)
