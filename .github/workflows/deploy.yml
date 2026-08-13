@@ -3,7 +3,6 @@ name: GemNova CI/CD Pipeline
 on:
   push:
     branches: [main]
-
   pull_request:
     branches: [main]
 
@@ -27,7 +26,7 @@ jobs:
           cd Backend
           npm install
 
-      - name: Check backend starts
+      - name: Check backend
         run: |
           cd Backend
           echo "Backend dependencies installed successfully"
@@ -59,23 +58,23 @@ jobs:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
 
-  # ── Job 3: Deploy (only on main branch) ──────
+  # ── Job 3: Deploy to Render ──────────────────
   deploy:
-  needs: [test-backend, test-frontend]
-  runs-on: ubuntu-latest
-  if: github.ref == 'refs/heads/main'
+    needs: [test-backend, test-frontend]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Deploy Backend to Render
-      run: |
-        curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}"
+      - name: Deploy Backend to Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}"
 
-    - name: Deploy Frontend to Render
-      run: |
-        curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
+      - name: Deploy Frontend to Render
+        run: |
+          curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
 
-    - name: Deployment complete
-      run: echo "✅ GemNova deployed successfully!"
+      - name: Deployment complete
+        run: echo "✅ GemNova deployed successfully!"
