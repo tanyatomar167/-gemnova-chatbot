@@ -61,22 +61,21 @@ jobs:
 
   # ── Job 3: Deploy (only on main branch) ──────
   deploy:
-    needs: [test-backend, test-frontend]
-    runs-on: ubuntu-latest
+  needs: [test-backend, test-frontend]
+  runs-on: ubuntu-latest
+  if: github.ref == 'refs/heads/main'
 
-    if: github.ref == 'refs/heads/main'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Deploy Backend to Render
+      run: |
+        curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}"
 
-      - name: Deploy Backend to Render
-        run: |
-          curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}"
+    - name: Deploy Frontend to Render
+      run: |
+        curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
 
-      - name: Deploy Frontend to Render
-        run: |
-          curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
-
-      - name: Deployment complete
-        run: echo "GemNova deployed successfully!"
+    - name: Deployment complete
+      run: echo "✅ GemNova deployed successfully!"
