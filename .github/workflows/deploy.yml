@@ -3,22 +3,24 @@ name: GemNova CI/CD Pipeline
 on:
   push:
     branches: [main]
+
   pull_request:
     branches: [main]
 
 jobs:
+
   # ── Job 1: Test Backend ──────────────────────
   test-backend:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Install backend dependencies
         run: |
@@ -30,18 +32,19 @@ jobs:
           cd Backend
           echo "Backend dependencies installed successfully"
 
+
   # ── Job 2: Test Frontend ─────────────────────
   test-frontend:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Install frontend dependencies
         run: |
@@ -55,23 +58,25 @@ jobs:
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
+
   # ── Job 3: Deploy (only on main branch) ──────
   deploy:
     needs: [test-backend, test-frontend]
     runs-on: ubuntu-latest
+
     if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy Backend to Render
         run: |
-          curl -X POST ${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}
+          curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}"
 
       - name: Deploy Frontend to Render
         run: |
-          curl -X POST ${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}
+          curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
 
       - name: Deployment complete
-        run: echo "✅ GemNova deployed successfully!"
+        run: echo "GemNova deployed successfully!"
