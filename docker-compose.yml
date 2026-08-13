@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./Backend
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+    networks:
+      - gemnova-network
+
+  frontend:
+    build: ./Frontend/frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - gemnova-network
+
+networks:
+  gemnova-network:
+    driver: bridge
