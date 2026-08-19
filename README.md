@@ -91,24 +91,31 @@ All conversations are associated with the authenticated user and stored in Mongo
 
 # 🎨 UI / UX
 
-The interface is designed around a simple and familiar chatbot experience.
+The interface is designed around a modern AI-chatbot experience with a clean layout, intuitive interactions, and responsive behavior.
 
 ### UI Features
 
-* 🌙 Dark-themed interface
-* 📱 Responsive layout
-* 💬 Chat-style message interface
+* 🌙 Modern dark and light themes
+* 🎨 Consistent green accent color and visual hierarchy
+* 📱 Responsive layout for different screen sizes
+* 💬 Modern chat-style message interface
+* ✨ Rounded and polished UI components
 * ⌨️ Auto-growing message input
-* ⚡ Typing animation
+* ⚡ Typing animation for AI responses
 * 🔍 Thread search
 * ✏️ Rename interaction
 * 🗑️ Delete interaction
+* ➕ New conversation button
 * 🎭 Chat mode selector
+* 📋 Copy AI responses with visual confirmation
+* 💻 Styled code blocks and inline code
+* 📝 Markdown-style message formatting
 * 📜 Automatic scroll to latest message
-* 🖱️ Hover interactions
-* 🔄 Loading states
+* 🖱️ Smooth hover and focus interactions
+* 🔄 Loading states and animations
+* 🌗 Persistent theme preference using localStorage
 
-The frontend focuses on **clean layout, usability, responsive behavior, and interactive components**.
+The frontend focuses on **clean visual hierarchy, consistent spacing, usability, responsive behavior, smooth interactions, and a modern AI assistant experience**.
 
 ---
 
