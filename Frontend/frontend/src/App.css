@@ -4,53 +4,46 @@
   box-sizing: border-box;
 }
 
-/* Dark theme variables */
 .main.dark {
-  --bg: #212121;
-  --sidebar-bg: #171717;
-  --text: #ffffff;
-  --text-muted: #b4b4b4;
-  --bubble-bg: #2f2f2f;
-  --input-bg: #2f2f2f;
-  --border: rgba(255, 255, 255, 0.1);
-  --hover: rgba(255, 255, 255, 0.05);
-  --navbar-bg: #212121;
+  --bg: #131314;
+  --sidebar-bg: #1e1f20;
+  --text: #e3e3e3;
+  --text-muted: #9aa0a6;
+  --bubble-bg: #282a2d;
+  --input-bg: #1e1f20;
+  --border: rgba(255, 255, 255, 0.08);
+  --hover: rgba(255, 255, 255, 0.07);
+  --navbar-bg: #131314;
 }
 
-.main.dark .userInput {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-}
-
-.main.dark .sidebar {
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(20px);
-}
-
-/* Light theme variables */
 .main.light {
-  --bg: #f9f9f9;
-  --sidebar-bg: #f0f0f0;
-  --text: #111111;
-  --text-muted: #888888;
-  --bubble-bg: #e8e8e8;
-  --input-bg: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
+  --bg: #ffffff;
+  --sidebar-bg: #f7f8fa;
+  --text: #202124;
+  --text-muted: #6f7378;
+  --bubble-bg: #f1f3f4;
+  --input-bg: #f8f9fa;
+  --border: rgba(0, 0, 0, 0.08);
   --hover: rgba(0, 0, 0, 0.05);
   --navbar-bg: #ffffff;
 }
 
-/* Main application container */
 .main {
   display: flex;
   width: 100%;
   height: 100vh;
   min-height: 100vh;
   overflow: hidden;
-  background-color: var(--bg);
-  font-family: "Söhne", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  font-family:
+    Inter,
+    "Google Sans",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: var(--text);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
 }
