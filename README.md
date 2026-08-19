@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### A ChatGPT-inspired full-stack AI chatbot built with JavaScript
+### A ChatGPT-inspired full-stack AI chatbot 
 
 **React.js · JavaScript · Node.js · Express.js · MongoDB · Google Gemini AI**
 
