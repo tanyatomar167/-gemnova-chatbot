@@ -6,15 +6,17 @@
 
 **React.js · JavaScript · Node.js · Express.js · MongoDB · Google Gemini AI**
 
-\
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-19c37d?style=for-the-badge)](https://gemnova-frontend.onrender.com)
+[![GitHub](https://img.shields.io/badge/GitHub-View_Code-black?style=for-the-badge\&logo=github)](https://github.com/tanyatomar167/gemnova-chatbot)
 
-
-
-
-
-
-
-\
+![React](https://img.shields.io/badge/React.js-20232A?style=flat\&logo=react\&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat\&logo=javascript\&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat\&logo=css3\&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat\&logo=node.js\&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat\&logo=express\&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat\&logo=mongodb\&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat\&logo=git\&logoColor=white)
 
 </div>
 
@@ -112,18 +114,18 @@ The frontend focuses on **clean layout, usability, responsive behavior, and inte
 
 # 🛠️ Tech Stack
 
-| Category            | Technologies                                           |
-| ------------------- | ------------------------------------------------------ |
-| **Frontend**        | React.js, JavaScript, HTML5, CSS3                      |
-| **UI / UX**         | Responsive UI, CSS animations,  Interactive Components |
-| **Backend**         | Node.js, Express.js                                    |
-| **API**             | REST APIs                                              |
-| **Database**        | MongoDB Atlas                                          |
-| **ODM**             | Mongoose                                               |
-| **Authentication**  | JWT, bcrypt                                            |
-| **AI Integration**  | Google Gemini API                                      |
-| **Version Control** | Git, GitHub                                            |
-| **Deployment**      | Render                                                 |
+| Category            | Technologies                                          |
+| ------------------- | ----------------------------------------------------- |
+| **Frontend**        | React.js, JavaScript, HTML5, CSS3                     |
+| **UI / UX**         | Responsive UI, CSS animations, Interactive Components |
+| **Backend**         | Node.js, Express.js                                   |
+| **API**             | REST APIs                                             |
+| **Database**        | MongoDB Atlas                                         |
+| **ODM**             | Mongoose                                              |
+| **Authentication**  | JWT, bcrypt                                           |
+| **AI Integration**  | Google Gemini API                                     |
+| **Version Control** | Git, GitHub                                           |
+| **Deployment**      | Render                                                |
 
 ---
 
@@ -520,6 +522,8 @@ The live application is available here:
 Interested in:
 
 **Full-Stack Development · JavaScript · UI/UX · AI Applications**
+
+[![GitHub](https://img.shields.io/badge/GitHub-tanyatomar167-black?style=flat\&logo=github)](https://github.com/tanyatomar167)
 
 ---
 
