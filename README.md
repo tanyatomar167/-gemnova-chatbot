@@ -217,46 +217,108 @@ gemnova-chatbot/
 ├── Backend/
 │   ├── middleware/
 │   │   └── auth.js
+│   │       → Verifies JWT token and protects private routes
 │   │
 │   ├── models/
 │   │   ├── User.js
+│   │   │   → Defines the user data structure for MongoDB
 │   │   └── Thread.js
+│   │       → Defines the conversation and message structure
 │   │
 │   ├── routes/
 │   │   ├── auth.js
+│   │   │   → Handles user registration and login
 │   │   └── chat.js
+│   │       → Handles chat and conversation operations
 │   │
 │   ├── utils/
 │   │   └── gemini.js
+│   │       → Connects the backend with Google Gemini API
 │   │
 │   ├── server.js
+│   │   → Starts Express server and connects MongoDB
+│   │
 │   └── package.json
+│       → Backend dependencies and scripts
 │
 ├── Frontend/
 │   └── frontend/
 │       ├── src/
 │       │   ├── App.jsx
+│       │   │   → Main React component and application setup
+│       │   │
 │       │   ├── MyContext.jsx
+│       │   │   → Manages shared state and API operations
+│       │   │
 │       │   ├── Login.jsx
+│       │   │   → Login and registration interface
+│       │   │
 │       │   ├── sidebar.jsx
+│       │   │   → Displays and manages conversation history
+│       │   │
 │       │   ├── chatwindow.jsx
+│       │   │   → Main chat window and message input
+│       │   │
 │       │   ├── chat.jsx
+│       │   │   → Displays user and AI messages
+│       │   │
 │       │   └── Dropdown.jsx
+│       │       → Chat mode selection menu
 │       │
 │       ├── App.css
+│       │   → Main application styling and theme
+│       │
 │       ├── vite.config.js
+│       │   → Vite development and build configuration
+│       │
 │       └── package.json
+│           → Frontend dependencies and scripts
 │
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml
+│           → GitHub Actions workflow for automated deployment
 │
 ├── docker-compose.yml
+│   → Runs frontend and backend services together
+│
 ├── .gitignore
+│   → Prevents files such as .env and node_modules from being tracked
+│
 └── README.md
-```
+    → Project documentation
+## 🔐 Authentication & Authorization
 
----
+GemNova uses **JWT-based authentication and authorization**.
+
+### Authentication
+- Users register and log in using email and password.
+- Passwords are securely hashed using bcrypt.
+- After successful login, the backend generates a JWT token.
+- The token is sent with protected API requests.
+
+### Authorization
+- The backend verifies the JWT token using authentication middleware.
+- The user's `userId` is extracted from the verified token.
+- API requests are authorized based on the authenticated user's identity.
+- Users can access and manage **only their own conversations**.
+
+```text
+User Login
+    ↓
+Credentials Verified
+    ↓
+JWT Token Generated
+    ↓
+Frontend Sends Bearer Token
+    ↓
+JWT Middleware Verifies Token
+    ↓
+Extract userId
+    ↓
+Authorization Check
+    ↓
+Access User's Own Threads
 
 # 🔌 REST API
 
