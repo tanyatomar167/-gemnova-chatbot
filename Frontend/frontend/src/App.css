@@ -1,11 +1,11 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* dark theme variables */
-.main.dark {
+/*main.dark {
   --bg:          #212121;
   --sidebar-bg:  #171717;
   --text:        #ececec;
@@ -17,8 +17,9 @@
   --navbar-bg:   #212121;
 }
 
+
 /* light theme variables */
-.main.light {
+/*.main.light {
   --bg:          #f9f9f9;
   --sidebar-bg:  #f0f0f0;
   --text:        #111111;
@@ -38,4 +39,16 @@
   font-family: "Söhne", ui-sans-serif, system-ui, -apple-system, sans-serif;
   color: var(--text);
   transition: background 0.2s, color 0.2s;
+} 
+/* in App.css change these variables */
+.main.dark {
+  --bg: #0f0f1a;           /* deep navy */
+  --sidebar-bg: #13131f;
+  --text: #e8e8ff;
+  --bubble-bg: #1e1e35;
+  --input-bg: #1e1e35;
+  --border: rgba(130, 80, 255, 0.2);
 }
+
+/* change accent color from green to purple */
+/* replace all #19c37d with #8250ff */

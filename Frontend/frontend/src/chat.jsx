@@ -57,20 +57,25 @@ function formatMessage(text) {
 
 function Message({ msg }) {
   const [typingDone, setTypingDone] = useState(!msg.typing);
+  const [copied, setCopied] = useState(false);
   const isUser = msg.role === "user";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(msg.content);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className={`message-row ${isUser ? "user-row" : "bot-row"}`}>
       <div className="message-inner">
 
-        {/* bot avatar on left */}
         {!isUser && (
           <div className="avatar bot-avatar">
             <i className="fa-solid fa-robot"></i>
           </div>
         )}
 
-        {/* message bubble */}
         <div className={`bubble ${isUser ? "user-bubble" : "bot-bubble"}`}>
           {isUser ? (
             <span>{msg.content}</span>
@@ -86,9 +91,23 @@ function Message({ msg }) {
               }}
             />
           )}
+
+          {/* ✅ copy button — only on bot messages */}
+          {!isUser && typingDone && (
+            <button
+              className="copy-btn"
+              onClick={handleCopy}
+              title="Copy response"
+            >
+              {copied ? (
+                <><i className="fa-solid fa-check"></i> Copied</>
+              ) : (
+                <><i className="fa-regular fa-copy"></i> Copy</>
+              )}
+            </button>
+          )}
         </div>
 
-        {/* user avatar on right */}
         {isUser && (
           <div className="avatar user-avatar">
             <i className="fa-solid fa-user"></i>
@@ -143,5 +162,7 @@ function Chat() {
     </div>
   );
 }
+
+
 
 export default Chat;
