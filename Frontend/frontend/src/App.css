@@ -1,25 +1,27 @@
-/* * {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* dark theme variables */
-/*main.dark {
-  --bg:          #212121;
-  --sidebar-bg:  #171717;
-  --text:        #ececec;
-  --text-muted:  #6b6b6b;
-  --bubble-bg:   #2f2f2f;
-  --input-bg:    #2f2f2f;
-  --border:      rgba(255, 255, 255, 0.1);
-  --hover:       rgba(255, 255, 255, 0.07);
-  --navbar-bg:   #212121;
+ dark theme variables */
+main.dark {
+  .userInput {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
+}
 }
 
 
-/* light theme variables */
-/*.main.light {
+ light theme variables 
+.main.light {
   --bg:          #f9f9f9;
   --sidebar-bg:  #f0f0f0;
   --text:        #111111;
@@ -40,15 +42,3 @@
   color: var(--text);
   transition: background 0.2s, color 0.2s;
 } 
-/* in App.css change these variables */
-.main.dark {
-  --bg: #0f0f1a;           /* deep navy */
-  --sidebar-bg: #13131f;
-  --text: #e8e8ff;
-  --bubble-bg: #1e1e35;
-  --input-bg: #1e1e35;
-  --border: rgba(130, 80, 255, 0.2);
-}
-
-/* change accent color from green to purple */
-/* replace all #19c37d with #8250ff */
