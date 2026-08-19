@@ -1,184 +1,182 @@
 <div align="center">
 
-# 🤖 GemNova
+# 🤖 GemNova — AI Chatbot Application
 
-### AI-Powered Chatbot Application
+### A production-ready, full-stack AI chatbot inspired by ChatGPT
+### Built with React.js · Node.js · MongoDB · Google Gemini AI
 
-A full-stack ChatGPT-inspired chatbot built with React, Node.js, MongoDB, and Google Gemini AI. Containerized with Docker · Orchestrated with Kubernetes · Automated with GitHub Actions CI/CD
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_App-19c37d?style=for-the-badge)](https://gemnova-frontend.onrender.com)
+[![GitHub](https://img.shields.io/badge/GitHub-View_Code-black?style=for-the-badge&logo=github)](https://github.com/tanyatomar167/gemnova-chatbot)
 
-
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-gemnova--frontend.onrender.com-19c37d?style=for-the-badge)](https://gemnova-frontend.onrender.com)
-[![GitHub](https://img.shields.io/badge/GitHub-tanyatomar167-black?style=for-the-badge&logo=github)](https://github.com/tanyatomar167/-gemnova-chatbot)
-
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![React](https://img.shields.io/badge/React.js-20232A?style=flat&logo=react&logoColor=61DAFB)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React.js-20232A?style=flat&logo=react&logoColor=61DAFB)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
-![Express](https://img.shields.io/badge/Express.js-404D59?style=flat)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=flat&logo=JSON%20web%20tokens)
+![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
+![UI/UX](https://img.shields.io/badge/UI%2FUX_Basics-19c37d?style=flat&logo=figma&logoColor=white)
 
 </div>
 
 ---
 
-## 📌 Table of Contents
+## 📌 What is GemNova?
 
-- [About](#-about)
-- [Live Demo](#-live-demo)
-- [Features](#-features)
-- [Tech Stack](#-tech-stack)
-- [Project Structure](#-project-structure)
-- [Getting Started](#-getting-started)
-- [Docker Setup](#-docker-setup)
-- [CI/CD Pipeline](#%EF%B8%8F-cicd-pipeline)
-- [Kubernetes](#-kubernetes)
-- [API Endpoints](#-api-endpoints)
-- [Authentication Flow](#-authentication-flow)
-- [Security](#-security)
-- [Author](#-author)
+GemNova is a **full-stack AI chatbot application** built from scratch — from UI design to backend APIs to cloud deployment. It lets users have intelligent conversations powered by **Google Gemini 2.5 Flash**, with all conversations saved to a personal account in **MongoDB Atlas**.
+
+The goal was to replicate the core experience of ChatGPT while learning and implementing every layer of a modern web application — authentication, REST APIs, database design, containerization, and automated deployment.
 
 ---
 
-## 📖 About
+## 🌐 Live Application
 
-GemNova is a **full-stack AI chatbot application** inspired by ChatGPT. It uses **Google Gemini 2.5 Flash** to generate intelligent responses and **MongoDB Atlas** to persist conversations. The application includes user authentication with JWT, multiple AI chat modes, conversation history, and a containerized deployment setup.
-
-This project demonstrates end-to-end software development skills — from building a React-based user interface and REST APIs with Node.js and Express to containerizing the application with Docker, deploying services with Kubernetes, and configuring a GitHub Actions CI/CD workflow.
-
----
-
-## 🌐 Live Demo
-
-| Service | URL |
+| | Link |
 |---|---|
-| 🖥️ Frontend | [gemnova-frontend.onrender.com](https://gemnova-frontend.onrender.com) |
-| ⚙️ Backend API | [gemnova-chatbot-1.onrender.com](https://gemnova-chatbot-1.onrender.com) |
+| 🚀 Live App | https://gemnova-frontend.onrender.com |
+| 💻 Source Code | https://github.com/tanyatomar167/gemnova-chatbot |
 
-> ⚠️ **Note:** App is on Render free tier. Backend may take **30–60 seconds** to wake up on first visit. Refresh if blank.
+> **Note:** App is hosted on Render free tier — first load may take 30–60 seconds to wake up the backend.
 
 ---
 
 ## ✨ Features
 
-### 💬 Chat Features
-| Feature | Description |
-|---|---|
-| 🤖 AI Chat | Real-time responses from Google Gemini 2.5 Flash |
-| 🎭 4 Chat Modes | Default · Deep Think · Code Assistant · Creative |
-| ⌨️ Typing Effect | Character-by-character response animation |
-| 📝 Markdown | Bold, italic, code blocks, numbered lists formatted |
-| 📜 Auto Scroll | Chat auto-scrolls to latest message |
+### 🔐 User Authentication
+- Register and login with email and password
+- Passwords hashed using **bcrypt** (10 salt rounds)
+- Sessions managed with **JWT tokens** (7-day expiry)
+- Each user sees only their own conversations
+- Auto logout when token expires
 
-### 🧵 Thread Management
-| Feature | Description |
-|---|---|
-| 💾 Save History | All conversations saved to MongoDB |
-| ✏️ Rename Threads | Click to rename any conversation |
-| 🔍 Search Threads | Search through thread titles in sidebar |
-| 🗑️ Delete Threads | Remove conversations permanently |
-| ➕ New Chat | Start fresh conversation anytime |
+### 💬 AI Chat
+- Real-time responses from **Google Gemini 2.5 Flash**
+- **4 Chat Modes** — changes AI behavior per mode:
+  - ⚡ Default — Fast, concise answers
+  - 🧠 Deep Think — Step-by-step detailed explanations
+  - 💻 Code Assistant — Clean, commented code examples
+  - ✍️ Creative — Vivid, imaginative writing
+- Smooth **typing animation** (character by character)
+- **Markdown formatting** — bold, italic, code blocks, numbered lists, headings
 
-### 🔐 Authentication
-| Feature | Description |
-|---|---|
-| 📝 Register | Create account with name, email, password |
-| 🔑 Login | Secure login with JWT token |
-| 🔒 Authorization | Users see only their own threads |
-| 🚪 Logout | Clears token and session |
-| ♻️ Persistent Login | Token stored in localStorage, stays logged in |
+### 🗂️ Thread Management
+- All conversations saved automatically in MongoDB
+- **Rename** any thread with a single click
+- **Search** through all your past conversations instantly
+- **Delete** conversations you no longer need
+- Click any thread to reload full conversation history
+- New chat button to start fresh anytime
 
----
-
-## 🛠️ Tech Stack
-
-### Frontend
-| Technology | Version | Purpose |
-|---|---|---|
-| React.js | 18+ | UI Framework |
-| Vite | 5+ | Build tool |
-| React Context API | — | Global state management |
-| CSS3 + Variables | — | Theming and styling |
-| Font Awesome | 6.5 | Icons |
-
-### Backend
-| Technology | Version | Purpose |
-|---|---|---|
-| Node.js | 18+ | Runtime |
-| Express.js | 4+ | Web framework |
-| MongoDB Atlas | — | Cloud database |
-| Mongoose | 8+ | ODM for MongoDB |
-| jsonwebtoken | — | JWT tokens |
-| bcryptjs | — | Password hashing |
-| Google Gemini AI | 2.5 Flash | AI responses |
-| cors | — | Cross-origin requests |
-| dotenv | — | Environment variables |
-
-### DevOps
-| Tool | Purpose |
-|---|---|
-| Terminal (Linux/Bash) | Command line operations |
-| Git | Version control |
-| GitHub | Remote repository, collaboration |
-| Docker | Containerization |
-| Docker Compose | Multi-container local development |
-| GitHub Actions | CI/CD pipeline automation |
-| Kubernetes (kubectl) | Container orchestration and scaling |
-| Render | Cloud hosting (frontend + backend) |
+### 🎨 UI / UX
+- Dark theme inspired by ChatGPT
+- Animated **loading dots** while AI is thinking
+- **Auto-scroll** to latest message
+- Press **Enter** to send, Shift+Enter for new line
+- Responsive input box that grows with text
+- Active thread highlighted in sidebar
+- Hover to reveal rename and delete buttons
 
 ---
 
-## 🏗️ Project Structure
+## 🛠️ Tech Stack — Why Each Was Chosen
+
+| Layer | Technology | Why |
+|---|---|---|
+| Markup | **HTML5** | Semantic structure, accessible markup |
+| Styling | **CSS3** | Flexbox layout, CSS variables for theming, animations |
+| UI/UX | **Visual Design, Responsive UI** | Dark theme, typing animation, mode badges, clean layout |
+| Frontend | **JavaScript (ES6+)** | Core language — async/await, fetch, DOM, context |
+| Framework | **React.js** | Component-based UI, hooks, React Context global state |
+| Version Control | **Git + GitHub** | Branching, commits, push/pull, GitHub Actions |
+| Backend | **Node.js + Express.js** | Fast, lightweight, JavaScript end-to-end |
+| Database | **MongoDB Atlas** | Flexible schema for chat messages, cloud hosted |
+| ODM | **Mongoose** | Schema validation, easy querying |
+| Auth | **JWT + bcrypt** | Stateless auth, secure password storage |
+| AI | **Google Gemini API** | Free tier, powerful, fast responses |
+| Container | **Docker** | Consistent environment across machines |
+| CI/CD | **GitHub Actions** | Auto build and deploy on every push |
+| Hosting | **Render** | Free tier, supports Node + static sites |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────┐
+│                   BROWSER                        │
+│           React.js (Vite)                        │
+│   Login → Context API → Chat UI → Sidebar        │
+└──────────────────┬──────────────────────────────┘
+                   │ HTTPS REST API
+                   │ Authorization: Bearer TOKEN
+┌──────────────────▼──────────────────────────────┐
+│               EXPRESS.JS SERVER                  │
+│                                                  │
+│  /api/auth  → Register / Login                   │
+│  /api/thread → GET threads (user-scoped)         │
+│  /api/chat   → POST message → Gemini → save      │
+│                                                  │
+│  middleware/auth.js → JWT verification           │
+└──────────┬───────────────┬──────────────────────┘
+           │               │
+┌──────────▼──────┐  ┌─────▼───────────────────────┐
+│  MONGODB ATLAS  │  │    GOOGLE GEMINI API          │
+│  users          │  │    gemini-2.5-flash           │
+│  threads        │  │    System prompts per mode    │
+│  messages[]     │  └─────────────────────────────┘
+└─────────────────┘
+```
+
+---
+
+## 📁 Project Structure
 
 ```
 gemnova-chatbot/
 │
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml              # GitHub Actions CI/CD pipeline
-│
-├── k8s/
-│   ├── backend-deployment.yaml     # Kubernetes backend config (2 replicas)
-│   └── frontend-deployment.yaml    # Kubernetes frontend config (2 replicas)
+│       └── deploy.yml          # CI/CD — auto deploy on push
 │
 ├── Backend/
-│   ├── Dockerfile                  # Docker image — Node 18 Alpine
-│   ├── .dockerignore
 │   ├── middleware/
-│   │   └── auth.js                 # JWT token verification middleware
+│   │   └── auth.js             # JWT verification middleware
 │   ├── models/
-│   │   ├── User.js                 # User schema (name, email, hashed password)
-│   │   └── Thread.js               # Thread schema (messages[], userId)
+│   │   ├── User.js             # User schema (name, email, hashed password)
+│   │   └── Thread.js           # Thread schema (userId, title, messages[])
 │   ├── routes/
-│   │   ├── auth.js                 # POST /register, POST /login
-│   │   └── chat.js                 # GET/POST/PATCH/DELETE thread routes
+│   │   ├── auth.js             # POST /register, POST /login
+│   │   └── chat.js             # GET/POST/PATCH/DELETE thread routes
 │   ├── utils/
-│   │   └── gemini.js               # Gemini API integration with mode prompts
-│   ├── server.js                   # Express entry point
+│   │   └── gemini.js           # Gemini API call with mode-based prompts
+│   ├── Dockerfile
+│   ├── server.js               # Express app, CORS, MongoDB connect
 │   └── package.json
 │
 ├── Frontend/frontend/
-│   ├── Dockerfile                  # Multi-stage build (Node → nginx)
 │   ├── src/
-│   │   ├── App.jsx                 # Root — auth check, theme state
-│   │   ├── App.css                 # Global styles + CSS theme variables
-│   │   ├── MyContext.jsx           # Global state (threads, auth, API calls)
-│   │   ├── Login.jsx               # Sign In / Sign Up page
+│   │   ├── App.jsx             # Auth check, theme state, routing
+│   │   ├── App.css             # Global reset + CSS theme variables
+│   │   ├── MyContext.jsx       # All API calls + global state
+│   │   ├── Login.jsx           # Register / Sign In UI
 │   │   ├── Login.css
-│   │   ├── sidebar.jsx             # Thread list, search, rename, delete
+│   │   ├── sidebar.jsx         # Thread list, search, rename, delete
 │   │   ├── sidebar.css
-│   │   ├── chatwindow.jsx          # Navbar, input bar, mode selector
+│   │   ├── chatwindow.jsx      # Navbar, input bar, send logic
 │   │   ├── chatwindow.css
-│   │   ├── chat.jsx                # Message bubbles, typing effect, markdown
+│   │   ├── chat.jsx            # Message bubbles, typing effect, markdown
 │   │   ├── chat.css
-│   │   ├── Dropdown.jsx            # Mode selector dropdown
+│   │   ├── Dropdown.jsx        # Mode selector with close-on-outside-click
 │   │   └── Dropdown.css
-│   ├── vite.config.js
+│   ├── Dockerfile
+│   ├── vite.config.js          # Proxy /api to backend in dev
 │   └── package.json
 │
-├── docker-compose.yml              # Run frontend + backend together locally
-├── .gitignore                      # Excludes node_modules, .env, dist
+├── docker-compose.yml          # Run both services together locally
+├── .gitignore
 └── README.md
 ```
 
@@ -186,318 +184,230 @@ gemnova-chatbot/
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Node.js v18+
-- MongoDB Atlas account (free tier)
-- Google Gemini API key (free at [aistudio.google.com](https://aistudio.google.com))
-- Docker Desktop (optional, for Docker setup)
+### Option 1 — Run Locally
 
-### Option 1 — Run with Node.js
+**Prerequisites:** Node.js v18+, MongoDB Atlas account, Gemini API key
 
-**1. Clone the repo**
 ```bash
-git clone https://github.com/tanyatomar167/-gemnova-chatbot.git
+# 1. Clone
+git clone https://github.com/tanyatomar167/gemnova-chatbot.git
 cd gemnova-chatbot
-```
 
-**2. Setup Backend**
-```bash
+# 2. Backend setup
 cd Backend
 npm install
-```
 
-Create `Backend/.env`:
-```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/gemnova
-GEMINI_API_KEY=your_gemini_api_key_here
+# Create Backend/.env
+MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/gemnova
+GEMINI_API_KEY=your_gemini_key_here
 JWT_SECRET=any_random_secret_string
-PORT=8080
-```
 
-Start backend:
-```bash
 node server.js
-# Server running on 8080
-# Connected with Database!
-```
+# ✅ server running on 8080
+# ✅ Connected with Database!
 
-**3. Setup Frontend**
-```bash
+# 3. Frontend setup (new terminal)
 cd Frontend/frontend
 npm install
-```
 
-Create `Frontend/frontend/.env`:
-```env
+# Create Frontend/frontend/.env
 VITE_API_URL=http://localhost:8080
-```
 
-Start frontend:
-```bash
 npm run dev
-# App running at http://localhost:5173
+# ✅ http://localhost:5173
 ```
 
 ### Option 2 — Run with Docker
 
 ```bash
-git clone https://github.com/tanyatomar167/-gemnova-chatbot.git
-cd gemnova-chatbot
-```
+# From root folder
+docker-compose up --build
 
-Create `.env` at root:
-```env
-MONGODB_URI=your_mongodb_uri
-GEMINI_API_KEY=your_gemini_key
-JWT_SECRET=your_secret
-```
-
-```bash
-docker compose up --build
-# Frontend → http://localhost
+# Frontend → http://localhost:80
 # Backend  → http://localhost:8080
 ```
 
 ---
 
-## 🐳 Docker Setup
+## 🔌 API Reference
 
-### Dockerfile — Backend (`Backend/Dockerfile`)
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 8080
-CMD ["node", "server.js"]
+### Authentication (Public)
+
+| Method | Endpoint | Body | Response |
+|---|---|---|---|
+| POST | `/api/auth/register` | `{name, email, password}` | `{token, user}` |
+| POST | `/api/auth/login` | `{email, password}` | `{token, user}` |
+
+### Chat & Threads (Protected — send `Authorization: Bearer TOKEN`)
+
+| Method | Endpoint | Body | Response |
+|---|---|---|---|
+| GET | `/api/thread` | — | Array of threads |
+| GET | `/api/thread/:threadId` | — | Array of messages |
+| POST | `/api/chat` | `{threadId, message, mode}` | `{reply}` |
+| PATCH | `/api/thread/:threadId/rename` | `{title}` | `{success, title}` |
+| DELETE | `/api/thread/:threadId` | — | `{success}` |
+
+---
+
+## 🔐 Security Implementation
+
+### Password Security
+```
+User registers with password "tanya123"
+                    ↓
+bcrypt.hash("tanya123", 10)
+                    ↓
+"$2b$10$xK9mN2pL..." → saved in MongoDB
+                    ↓
+Original password NEVER stored
+Even if DB is hacked → passwords are safe
 ```
 
-### Dockerfile — Frontend (`Frontend/frontend/Dockerfile`)
-```dockerfile
-# Stage 1 — Build
-FROM node:18-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-
-# Stage 2 — Serve with nginx
-FROM nginx:alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+### JWT Authorization
 ```
+User logs in → backend creates token:
+{
+  userId: "abc123",     ← identifies who
+  iat: 1234567890,      ← issued at
+  exp: 1234567890       ← expires in 7 days
+}
+Signed with JWT_SECRET → sent to browser
 
-### Docker Compose Commands
-```bash
-docker compose up --build     # build and start
-docker compose up -d          # run in background
-docker compose down           # stop everything
-docker compose logs           # view logs
+Every request:
+Header: Authorization: Bearer eyJhbGci...
+                    ↓
+middleware reads token → jwt.verify()
+                    ↓
+extracts userId → req.userId
+                    ↓
+only fetch data WHERE userId matches
+User A can NEVER see User B's threads ✅
 ```
 
 ---
 
 ## ⚙️ CI/CD Pipeline
 
-### GitHub Actions — `.github/workflows/deploy.yml`
-
-Every push to `main` branch triggers the pipeline automatically:
-
 ```
-📦 Push to GitHub (main branch)
-         ↓
-🔧 Job 1: Test Backend
-   → Checkout code
-   → Setup Node 18
-   → npm install (Backend)
-         ↓
-🏗️ Job 2: Build Frontend
-   → Checkout code
-   → Setup Node 18
-   → npm install (Frontend)
-   → npm run build (Vite)
-         ↓
-🚀 Job 3: Deploy (only if Jobs 1+2 pass)
-   → Trigger Render backend deploy hook
-   → Trigger Render frontend deploy hook
-         ↓
-✅ Live app updated automatically
+Developer pushes code to GitHub main branch
+                    ↓
+GitHub Actions workflow triggers automatically
+                    ↓
+┌─────────────────────────────────┐
+│  Job 1: Test Backend            │
+│  → npm install                  │
+│  → verify dependencies          │
+└──────────────┬──────────────────┘
+               ↓
+┌─────────────────────────────────┐
+│  Job 2: Build Frontend          │
+│  → npm install                  │
+│  → npm run build                │
+│  → verify dist/ generated       │
+└──────────────┬──────────────────┘
+               ↓
+┌─────────────────────────────────┐
+│  Job 3: Deploy (if jobs pass)   │
+│  → Trigger Render backend hook  │
+│  → Trigger Render frontend hook │
+└──────────────┬──────────────────┘
+               ↓
+App live at gemnova-frontend.onrender.com ✅
 ```
-
-**Benefits:**
-- Zero manual deployment needed
-- Failed builds block deployment automatically
-- Every commit is tested before going live
-- GitHub Secrets keep API keys safe
 
 ---
 
-## ☸️ Kubernetes
+## 🐳 Docker Setup
 
-### Deploy to Kubernetes
+### Why Docker?
+```
+Without Docker: "works on my machine" problem
+With Docker: same environment everywhere
+
+Your app runs identically on:
+→ Your laptop
+→ Your teammate's Mac
+→ Linux server on Render
+→ Any cloud provider
+```
+
+### Dockerfile — Backend (multi-layer optimization)
+```dockerfile
+FROM node:18-alpine        # lightweight base image
+WORKDIR /app
+COPY package*.json ./
+RUN npm install            # cache this layer
+COPY . .                   # copy code after install
+EXPOSE 8080
+CMD ["node", "server.js"]
+```
+
+### docker-compose — run both services
 ```bash
-# apply all configs
-kubectl apply -f k8s/
-
-# check running pods
-kubectl get pods
-```
-
-**Expected output (2 replicas running):**
-```
-NAME                               READY   STATUS    RESTARTS   AGE
-gemnova-backend-6cb48c9758-2kjrr   1/1     Running   0          14m
-gemnova-backend-6cb48c9758-bmdvp   1/1     Running   0          14m
-```
-
-### Scaling
-```bash
-# scale up to 5 replicas (high traffic)
-kubectl scale deployment gemnova-backend --replicas=5
-
-# verify scaling
-kubectl get pods
-# 5 pods now Running
-
-# scale back to 2
-kubectl scale deployment gemnova-backend --replicas=2
-# 3 pods Terminating gracefully — zero downtime
-```
-
-### Other useful commands
-```bash
-kubectl get services              # view services
-kubectl logs deployment/gemnova-backend   # view logs
-kubectl describe pod <pod-name>   # pod details
-kubectl delete -f k8s/            # remove all
-```
-
-**Kubernetes advantages demonstrated:**
-- ✅ High availability with 2 replicas
-- ✅ Zero-downtime scaling (tested 2 → 5 → 2)
-- ✅ Auto-restart if pod crashes
-- ✅ Load balancing across replicas
-
----
-
-## 🔌 API Endpoints
-
-### Auth Routes (Public)
-| Method | Endpoint | Body | Response |
-|---|---|---|---|
-| POST | `/api/auth/register` | `{name, email, password}` | `{token, user}` |
-| POST | `/api/auth/login` | `{email, password}` | `{token, user}` |
-
-### Chat Routes (Protected — Bearer Token required)
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/thread` | Get all threads for logged-in user |
-| GET | `/api/thread/:threadId` | Get messages for a specific thread |
-| POST | `/api/chat` | Send message, get Gemini reply |
-| PATCH | `/api/thread/:threadId/rename` | Rename a thread |
-| DELETE | `/api/thread/:threadId` | Delete a thread |
-
-**Protected route usage:**
-```
-Authorization: Bearer <your_jwt_token>
+docker-compose up --build   # first time
+docker-compose up           # after that
+docker-compose down         # stop
 ```
 
 ---
 
-## 🔐 Authentication Flow
+## 🌍 Deployment Architecture
 
 ```
-REGISTER:
-User fills form → POST /api/auth/register
-→ bcrypt.hash(password, 10)     [hashed, never plain]
-→ User saved to MongoDB
-→ jwt.sign({userId}, JWT_SECRET, {expiresIn: "7d"})
-→ Token returned to frontend
-→ Saved in localStorage
-
-LOGIN:
-User enters credentials → POST /api/auth/login
-→ Find user by email in MongoDB
-→ bcrypt.compare(password, storedHash)
-→ If match → new JWT token created
-→ Token returned and saved in localStorage
-
-EVERY PROTECTED REQUEST:
-Frontend sends: Authorization: Bearer <token>
-→ middleware/auth.js reads token
-→ jwt.verify(token, JWT_SECRET)
-→ Extracts userId → req.userId
-→ Route handler filters data by userId
-→ User A cannot access User B's threads ✅
-
-TOKEN EXPIRY:
-Token expires after 7 days
-→ Next request returns 401
-→ localStorage cleared
-→ Login page shown automatically
+GitHub Repo
+    │
+    ├── GitHub Actions CI/CD
+    │       ↓ on push to main
+    │
+    ├── Render (Backend — Web Service)
+    │   ├── Runtime: Node.js
+    │   ├── Root: Backend/
+    │   ├── Start: node server.js
+    │   └── Env: MONGODB_URI, GEMINI_API_KEY, JWT_SECRET
+    │
+    └── Render (Frontend — Static Site)
+        ├── Root: Frontend/frontend
+        ├── Build: npm run build
+        ├── Publish: dist/
+        └── Env: VITE_API_URL
 ```
 
 ---
 
-## 🔒 Security
+## 🎭 Chat Modes — How They Work
 
-| Security Measure | Implementation |
-|---|---|
-| Password hashing | bcrypt with 10 salt rounds |
-| Authentication | JWT tokens (7 day expiry) |
-| Authorization | Middleware on every protected route |
-| Data isolation | All queries filter by `userId` |
-| CORS restriction | Only frontend URL whitelisted |
-| Secret management | `.env` files never committed to GitHub |
-| Container secrets | Kubernetes secrets for env variables |
-| GitHub Secrets | API keys stored as repository secrets |
+Each mode sends a different **system prompt** to Gemini before the user's message:
 
----
+```javascript
+const systemPrompts = {
+  "Default":        "You are a helpful assistant. Answer clearly.",
+  "Deep Think":     "Think step by step. Explain in full detail.",
+  "Code Assistant": "You are a coding expert. Provide commented code.",
+  "Creative":       "Use vivid, imaginative, engaging language.",
+};
 
-## 📁 Key Files Explained
+// Full prompt sent to Gemini:
+`${systemPrompts[mode]}\n\nUser: ${userMessage}`
+```
 
-| File | What it does |
-|---|---|
-| `MyContext.jsx` | Global state — threads, auth, all API calls |
-| `middleware/auth.js` | Reads JWT from header, extracts userId |
-| `routes/chat.js` | All chat CRUD — protected with verifyToken |
-| `routes/auth.js` | Register and Login — creates JWT |
-| `utils/gemini.js` | Calls Gemini API with mode-specific prompts |
-| `models/Thread.js` | MongoDB schema — stores userId with thread |
-| `models/User.js` | MongoDB schema — stores hashed password |
-| `deploy.yml` | GitHub Actions CI/CD workflow |
-| `k8s/*.yaml` | Kubernetes deployment manifests |
-| `docker-compose.yml` | Runs frontend + backend locally |
+Same question → different mode → completely different answer style.
 
 ---
 
-## 🎭 Chat Modes
-
-| Mode | System Prompt Style | Best For |
-|---|---|---|
-| Default | Helpful and concise | General questions |
-| Deep Think | Step-by-step detailed | Complex topics |
-| Code Assistant | Clean commented code | Programming help |
-| Creative | Vivid imaginative language | Writing and stories |
-
----
-
-## 📚 What This Project Demonstrates
+## 🔧 Known Limitations
 
 ```
-Full Stack     → React + Node.js + Express + MongoDB
-AI Integration → Google Gemini API with custom prompts
-Authentication → JWT + bcrypt full implementation
-Authorization  → Middleware-based route protection
-Containerization → Docker + multi-stage builds
-Orchestration  → Kubernetes scaling and deployment
-CI/CD          → GitHub Actions automated pipeline
-Cloud Deploy   → Render with env vars and secrets
-Security       → CORS, secrets management, data isolation
-Git Workflow   → Feature commits, meaningful messages
+⚠️  Render free tier sleeps after 15 min inactivity
+    First load = 30-60 sec wake-up time
+    Solution: upgrade to paid tier for production
+
+⚠️  No message streaming yet
+    Full reply appears after complete generation
+    Solution: implement SSE (Server-Sent Events)
+
+⚠️  No image upload support yet
+    Text-only conversations for now
 ```
 
 ---
@@ -505,21 +415,14 @@ Git Workflow   → Feature commits, meaningful messages
 ## 👩‍💻 Author
 
 **Tanya Tomar**
-B.Tech CSE Student | RKGIT, Ghaziabad (2027) | Full Stack + DevOps
+B.Tech Computer Science & Engineering — RKGIT Ghaziabad (2027)
 
 [![GitHub](https://img.shields.io/badge/GitHub-tanyatomar167-black?style=flat&logo=github)](https://github.com/tanyatomar167)
-[![Live Project](https://img.shields.io/badge/Live-GemNova-19c37d?style=flat)](https://gemnova-frontend.onrender.com)
-
----
-
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
-  <strong>Made with ❤️ by Tanya Tomar</strong>
-  <br/><br/>
-  <i>If this project helped you, please ⭐ star the repo!</i>
+Made with ❤️ by Tanya Tomar
+<br/><br/>
+⭐ <strong>Star this repo if you found it helpful!</strong>
 </div>
