@@ -216,3 +216,63 @@
 .copy-btn .fa-check {
   color: #8ab4f8;
 }
+@media (max-width: 768px) {
+  .empty-state {
+    font-size: 22px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .bubble {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .user-bubble {
+    max-width: 85%;
+  }
+
+  .bot-bubble {
+    max-width: calc(100% - 36px);
+  }
+
+  .bot-bubble pre {
+    max-width: 100%;
+    overflow-x: auto;
+    font-size: 12px;
+  }
+
+  .copy-btn {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .message-row {
+    padding: 5px 8px;
+  }
+
+  .bubble {
+    font-size: 13.5px;
+  }
+
+  .user-bubble {
+    max-width: 90%;
+  }
+
+  .bot-bubble {
+    max-width: calc(100% - 34px);
+  }
+
+  .navbar {
+    font-size: 14px;
+  }
+}

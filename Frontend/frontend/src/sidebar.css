@@ -242,3 +242,28 @@
   font-size: 11px;
   color: var(--text-muted);
 }
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 190px;
+    min-width: 190px;
+  }
+
+  .top-bar {
+    padding: 8px 10px;
+  }
+
+  .history {
+    padding: 0 6px;
+  }
+
+  .sign {
+    padding: 10px;
+  }
+}
